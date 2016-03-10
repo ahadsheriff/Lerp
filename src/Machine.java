@@ -508,7 +508,6 @@ public class Machine {
     public static void main(String[] args){
         if (args.length == 1) {
             Machine m = new Machine(args[0]);
-            m.displayInstructions();
             m.execute();
         } else {
             System.out.println("Usage: java Machine filename");
