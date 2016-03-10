@@ -1,4 +1,6 @@
 
+import com.sun.org.apache.xpath.internal.operations.Neg;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,7 +22,9 @@ public class Machine {
      * Construct a Machine.
      *
      */
-    public Machine() {}
+    public Machine() {
+
+    }
 
     /**
      * Construct a Machine and load instruction from the file name
@@ -70,7 +74,10 @@ public class Machine {
      *
      */
     public void displayInstructions() {
-        // TODO
+        System.out.println("Machine Instructions: " );
+        for(Instruction in : this.instrSeq){
+            System.out.println(in.toString());
+        }
     }
 
     /**
@@ -80,7 +87,9 @@ public class Machine {
      */
     public void execute() {
         register = new double[maxReg+1];
-        // TODO
+        for (Instruction i: instrSeq){
+            i.execute();
+        }
     }
 
     /**
@@ -105,7 +114,11 @@ public class Machine {
      * 
      */
     public void addAdd(int it, int i1, int i2){
-        // TODO
+        Add a = new Add(it, i1, i2);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(a);
     }
 
     /**
@@ -118,7 +131,11 @@ public class Machine {
      * 
      */
     public void addSub(int it, int i1, int i2){
-        // TODO
+        Subtract s = new Subtract(it, i1, i2);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(s);
     }
 
     /**
@@ -131,7 +148,11 @@ public class Machine {
      * 
      */
     public void addMul(int it, int i1, int i2){
-        // TODO
+        Multiply m = new Multiply(it, i1, i2);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(m);
     }
 
     /**
@@ -144,7 +165,11 @@ public class Machine {
      * 
      */
     public void addDiv(int it, int i1, int i2){
-        // TODO
+        Divide d = new Divide(it, i1, i2);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(d);
     }
 
     /**
@@ -156,7 +181,11 @@ public class Machine {
      * 
      */
     public void addNeg(int it, int i){
-        // TODO
+        Negate neg = new Negate(it, i);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(neg);
     }
 
     /**
@@ -168,7 +197,11 @@ public class Machine {
      * 
      */
     public void addSqrt(int it, int i){
-        // TODO
+        SquareRoot sqrt = new SquareRoot(it, i);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(sqrt);
     }
 
     /**
@@ -180,7 +213,11 @@ public class Machine {
      * 
      */
     public void addLdi(int it, double num){
-        // TODO
+        LoadIm li = new LoadIm(it, num);
+        if (it > maxReg) {
+            maxReg = it;
+        }
+        this.instrSeq.add(li);
     }
 
     /**
@@ -191,7 +228,8 @@ public class Machine {
      * 
      */
     public void addPrint(int i){
-        // TODO
+        Print prnt = new Print(i);
+        this.instrSeq.add(prnt);
     }
 
 
@@ -269,7 +307,9 @@ public class Machine {
          *
          */
         public Add(int it, int i1, int i2){
-            // TODO
+            this.it = it;
+            this.i1 = i1;
+            this.i2 = i2;
         }
 
         /**
@@ -277,7 +317,7 @@ public class Machine {
          */
         @Override
         public void execute() {
-            // TODO
+            register[it] = register[i1] +register[i2];
         }
         
         /**
@@ -300,12 +340,14 @@ public class Machine {
          *
          */
         public Subtract(int it, int i1, int i2){
-            // TODO
+            this.it = it;
+            this.i1 = i1;
+            this.i2 = i2;
         }
         
         @Override
         public void execute() {
-            // TODO
+            register[it] = register[i1] - register[i2];
         }
         @Override
         public String toString() {
@@ -323,12 +365,14 @@ public class Machine {
          *
          */
         public Multiply(int it, int i1, int i2){
-            // TODO
+            this.it = it;
+            this.i1 = i1;
+            this.i2 = i2;
         }
         
         @Override
         public void execute() {
-            // TODO
+            this.it = this.i1 * this.i2;
         }
         @Override
         public String toString() {
@@ -346,12 +390,14 @@ public class Machine {
          *
          */
         public Divide(int it, int i1, int i2){
-            // TODO
+            this.it = it;
+            this.i1 = i1;
+            this.i2 = i2;
         }
         
         @Override
         public void execute() {
-            // TODO
+            register[it] = register[i1] / register[i2];
         }
         @Override
         public String toString() {
@@ -368,12 +414,13 @@ public class Machine {
          *
          */
         public Negate(int it, int i){
-            // TODO
+            this.it = it;
+            this.i = i;
         }
         
         @Override
         public void execute() {
-            // TODO
+            register[it] = -register[i];
         }
         @Override
         public String toString() {
@@ -390,11 +437,12 @@ public class Machine {
          *
          */
         public SquareRoot(int it, int i){
-            // TODO
+            this.it = it;
+            this.i = i;
         }
         @Override
         public void execute() {
-            // TODO
+            register[it] = Math.sqrt(register[i]);
         }
         @Override
         public String toString() {
@@ -413,11 +461,12 @@ public class Machine {
          *
          */
         public LoadIm(int it, double num) {
-            // TODO
+            this.it = it;
+            this.num = num;
         }
         @Override
         public void execute() {
-            // TODO
+            register[it] = num;
         }
         @Override
         public String toString() {
@@ -434,11 +483,11 @@ public class Machine {
          *
          */
         public Print(int i) {
-            // TODO
+            this.i = i;
         }
         @Override
-        public void execute() { 
-            // TODO
+        public void execute() {
+            System.out.println(register[i]);
         }
         @Override
         public String toString() { 
@@ -459,6 +508,7 @@ public class Machine {
     public static void main(String[] args){
         if (args.length == 1) {
             Machine m = new Machine(args[0]);
+            m.displayInstructions();
             m.execute();
         } else {
             System.out.println("Usage: java Machine filename");
