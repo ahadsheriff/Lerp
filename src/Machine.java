@@ -372,7 +372,7 @@ public class Machine {
         
         @Override
         public void execute() {
-            this.it = this.i1 * this.i2;
+            register[it] = register[i1] * register[i2];
         }
         @Override
         public String toString() {
