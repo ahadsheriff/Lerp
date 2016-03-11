@@ -1,0 +1,23 @@
+commit c5c7c67945aadd42a4efb2ebbdd03003ca65fd09
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 9 23:44:15 2016 -0500
+
+    Forgot to change old code to new implementation.
+
+commit f98cbcd7029cbc5ca491f70895602023c2202027
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 9 23:38:42 2016 -0500
+
+    Took test statement out of main. Now this should work.
+
+commit d3872e36b472c457367943a983fe61d5df7b2f51
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 9 23:36:24 2016 -0500
+
+    Finished implementation, time to test using Try.
+
+commit 026b1ae4879e6b7297eade258dc6331dc986e654
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 9 16:37:02 2016 -0500
+
+    Initial Commit
