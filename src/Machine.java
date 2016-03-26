@@ -499,7 +499,7 @@ public class Machine {
     /**
      * A single command line argument is expected which is a file
      * name.  The Machine constructor is invoked on the file name, and
-     * then the code is executed.
+     * then the code is ex2ecuted.
      *
      * @param args the String array corresponding to the command line
      * arguments.
