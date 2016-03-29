@@ -13,12 +13,12 @@ public class ANFSqrtOp extends ANFUnOp {
      * operation
      */
     public ANFSqrtOp(ANFVarExp x){
-        // TODO
+        super(x);
     }
 
     @Override
     public void compile(int dest, Machine m){
-        // TODO
+        m.addSqrt(dest, getX().getN());
     }
 
     @Override

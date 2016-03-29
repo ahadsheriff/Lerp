@@ -9,9 +9,7 @@ public abstract class ANFBinOp implements ANFOp {
     private ANFVarExp x1;
     private ANFVarExp x2;
 
-    public ANFBinOp(){
-
-    }
+    public ANFBinOp(){} //Todo
     
     /**
      * Initialize the two operands.  This constructor can only be

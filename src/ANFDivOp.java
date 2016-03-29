@@ -14,12 +14,12 @@ public class ANFDivOp extends ANFBinOp {
      * division operation
      */
     public ANFDivOp(ANFVarExp x1, ANFVarExp x2){
-        // TODO
+        super(x1, x2);
     }
 
     @Override
     public void compile(int dest, Machine m){
-        // TODO
+        m.addDiv(dest, getX1().getN(), getX2().getN());
     }
 
     @Override

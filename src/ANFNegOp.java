@@ -12,12 +12,12 @@ public class ANFNegOp extends ANFUnOp {
      * operation
      */
     public ANFNegOp(ANFVarExp x){
-        // TODO
+        super(x);
     }
 
     @Override
     public void compile(int dest, Machine m){
-        // TODO
+        m.addNeg(dest, getX().getN());
     }
 
     @Override

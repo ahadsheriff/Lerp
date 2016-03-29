@@ -20,7 +20,8 @@ public abstract class BinaryExp implements Expression {
      * binary expression
      */
     public BinaryExp(Expression exp1, Expression exp2){
-        // TODO
+        this.exp1 = exp1;
+        this.exp2 = exp2;
     }
 
     /**
@@ -29,8 +30,7 @@ public abstract class BinaryExp implements Expression {
      * @return the Expression that is the first operand of the binary expression
      */
     public Expression getExp1(){
-        // TODO
-        return null; // TODO replace
+        return exp1;
     }
 
     /**
@@ -39,14 +39,12 @@ public abstract class BinaryExp implements Expression {
      * @return the Expression that is the second operand of the binary expression
      */
     public Expression getExp2(){
-        // TODO
-        return null; // TODO replace
+        return exp2;
     }
 
     @Override
     public ANFExp toANF(){
-        // TODO
-        return null; // TODO replace
+        return null;
     }
 
     @Override
