@@ -14,12 +14,12 @@ public class ANFConstOp implements ANFOp {
      * @param num the double that is the constant
      */
     public ANFConstOp(double num){
-        // TODO
+        this.num = num;
     }
 
     @Override
     public void compile(int dest, Machine m){
-        // TODO
+        m.addLdi(dest, num);
     }
 
     @Override

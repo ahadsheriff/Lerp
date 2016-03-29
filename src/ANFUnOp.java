@@ -17,7 +17,7 @@ public abstract class ANFUnOp implements ANFOp {
      * @param x the ANFVarExp that is the operand of the unary operation
      */
     public ANFUnOp(ANFVarExp x){
-        // TODO
+        this.x = x;
     }
 
     /**
@@ -26,8 +26,7 @@ public abstract class ANFUnOp implements ANFOp {
      * @return the ANFVarExp that is the operand of the unary operation
      */
     public ANFVarExp getX(){
-        // TODO
-        return null; // TODO replace
+        return x;
     }
 
     @Override
