@@ -12,13 +12,21 @@ public class NegExp extends UnaryExp {
      * negation expression
      */
     public NegExp(Expression exp){
-        // TODO
+        super(exp);
     }
 
     @Override
     public Triple<ANFVarExp, ANFOp, Expression> extract(){
-        // TODO
-        return null; // TODO replace
+
+        if(getExp()instanceof Holder){
+            ANFVarExp express = new ANFVarExp();
+            Holder hole = new Holder(express);
+
+            return new Triple(express, new ANFNegOp((ANFVarExp)getExp().toANF()), hole);
+        }
+        else {
+            return null;
+        }
     }
 
     @Override
