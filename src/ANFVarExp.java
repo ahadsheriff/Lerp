@@ -16,7 +16,7 @@ public class ANFVarExp implements ANFExp {
      *
      */
     public ANFVarExp(){
-        // TO DO
+        this.n = 0;
     }
     
     /**
@@ -24,7 +24,7 @@ public class ANFVarExp implements ANFExp {
      * 
      */
     public static void reset(){
-        // TO DO
+        count = 0;
     }
     
     /**
@@ -33,13 +33,12 @@ public class ANFVarExp implements ANFExp {
      * @return the int that is the number associated with the variable
      */
     public int getN(){
-        // TO DO
-        return 0; // replace
+        return this.n;
     }
     
     @Override
     public void compile(Machine m){
-        // TO DO
+        // TODO
     }
     
     @Override

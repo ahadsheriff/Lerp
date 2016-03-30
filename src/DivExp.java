@@ -14,13 +14,34 @@ public class DivExp extends BinaryExp {
      * division expression
      */
     public DivExp(Expression exp1, Expression exp2){
-        // TODO
+        super(exp1, exp2);
     }
 
     @Override
     public Triple<ANFVarExp, ANFOp, Expression> extract(){
-        // TODO
-        return null; // TODO replace
+
+        if(getExp1()instanceof Holder && getExp2()instanceof Holder){
+            ANFVarExp express = new ANFVarExp();
+            Holder hole = new Holder(express);
+
+            //TODO
+            // Replacing ANFVarExp cast with Holder throws an error
+            return new Triple(express, new ANFDivOp((ANFVarExp) getExp1().toANF(), (ANFVarExp) getExp2().toANF()),hole);
+        }
+
+        else if (!(getExp1()instanceof Holder)) {
+            Triple<ANFVarExp, ANFOp, Expression> extractor = getExp1().extract();
+            return new Triple(extractor.first(), extractor.second(), new DivExp(getExp2(), extractor.third()));
+        }
+
+        else if (!(getExp2()instanceof Holder)) {
+            Triple<ANFVarExp, ANFOp, Expression> extractor = getExp2().extract();
+            return new Triple(extractor.first(), extractor.second(), new DivExp(getExp2(), extractor.third()));
+        }
+
+        else {
+            return null;
+        }
     }
 
     @Override

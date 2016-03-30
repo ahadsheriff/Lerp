@@ -44,7 +44,7 @@ public abstract class BinaryExp implements Expression {
 
     @Override
     public ANFExp toANF(){
-        return null;
+        return null; //TODO
     }
 
     @Override

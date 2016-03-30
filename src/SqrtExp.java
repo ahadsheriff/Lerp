@@ -12,7 +12,7 @@ public class SqrtExp extends UnaryExp {
      * square root expression
      */
     public SqrtExp(Expression exp){
-        // TODO
+        super(exp);
     }
 
     @Override
