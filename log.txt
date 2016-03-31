@@ -1,3 +1,57 @@
+commit 5700faf295dbdecb0f418abbe7f4b9f708e66fe9
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 15:51:52 2016 -0400
+
+    Finished implementing NumExp
+
+commit feb786911f437f1ce720fd8a53ce2f17bc7ef0e9
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 30 21:56:51 2016 -0400
+
+    Finished implementing toANF in Binary and Unary expression classes
+
+commit e9308325c64a156edd87675675dee55d600566d4
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 30 21:55:24 2016 -0400
+
+    Finished implementing let and var expressions
+
+commit f014533881c9ebf9b2be70cf884f135168237894
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 30 19:31:56 2016 -0400
+
+    Finished implementing unary expressions
+
+commit 49d51097b8592bf2cf6185e91af9abcc1451949c
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Wed Mar 30 19:26:35 2016 -0400
+
+    Finished implementing binary expressions
+
+commit a04aec4a71cccf3e675beacb5b3afbe9b0eb849e
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Mon Mar 28 21:19:05 2016 -0400
+
+    Implemented Operation classes
+
+commit 0367344d5fbec3854a7f1cf551c04bf544fc2e58
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Mon Mar 28 20:39:32 2016 -0400
+
+    Implemented ANFConstOp and Holder classes
+
+commit 0a38351528c14f1a0600b4219b88f7b9c44f6aa6
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Sat Mar 26 11:55:49 2016 -0700
+
+    Implemented ANFBinOp
+
+commit 6831f8bb759abd4bc1be9a3d843db10a8e02abeb
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 10 20:29:05 2016 -0500
+
+    Added txt file to git
+
 commit c5c7c67945aadd42a4efb2ebbdd03003ca65fd09
 Author: ahadsheriff <ahadsheriff@gmail.com>
 Date:   Wed Mar 9 23:44:15 2016 -0500
