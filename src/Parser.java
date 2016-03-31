@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.parser.TokenType;
+
 /**
  * A class that contains the static methods to parse lerp expressions.
  * 
@@ -35,12 +37,99 @@ public class Parser {
         return null; // Shouldn't get here. To satisfy Java.
     }
 
+    public Expression parenthesis() {
+        if(tokens[pos].equals("(")) {
+            pos++;
+            return operators();
+        }
+        else {
+            NumExp returnNums = new NumExp(Integer.parseInt(tokens[pos]));
+            pos++;
+            return returnNums;
+        }
+    }
 
-    // TODO any other helper methods
+    public Expression operators() {
+        Expression e1;
+        Expression e2;
+        switch (tokens[pos]) {
+            case("+"):
+                pos++;
+                e1 = parenthesis();
+                e2 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new AddExp(e1,e2);
+
+            case("-"):
+                pos++;
+                e1 = parenthesis();
+                e2 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new SubExp(e1,e2);
+
+            case("*"):
+                pos++;
+                e1 = parenthesis();
+                e2 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new MulExp(e1,e2);
+
+            case("/"):
+                pos++;
+                e1 = parenthesis();
+                e2 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new DivExp(e1,e2);
+
+            case("Neg"):
+                pos++;
+                e1 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new NegExp(e1);
+
+            case("Sqrt"):
+                pos++;
+                e1 = parenthesis();
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Expected ')' next but got", tokens[pos]);
+                }
+                else {
+                    pos++;
+                }
+                return new SqrtExp(e1);
+            default:
+                return null;
+        }
+    }
 
     private static Expression getExpression(){
-        // TODO
-        return null; 
+        Parser p = new Parser();
+        return p.operators();
     }
 
 }

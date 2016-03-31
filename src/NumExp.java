@@ -19,7 +19,6 @@ public class NumExp implements Expression {
     @Override
     public ANFExp toANF(){
         ANFVarExp exe = new ANFVarExp();
-
         return new ANFLetExp(exe, new ANFConstOp(num), exe);
 
     }
