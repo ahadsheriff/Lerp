@@ -14,14 +14,14 @@ public class Lerp {
     private static Machine m = new Machine();
 
     private static void compile(String codeText){
-      // TODO
+      //TODO
     }
 
     private static void repl(){
       Scanner sc = new Scanner(System.in);
       while(true){
           System.out.print("Lerp] ");
-          // TODO
+          //TODO
           return; // TODO return only when input is the empty line
       }
     }

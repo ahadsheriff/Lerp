@@ -8,8 +8,6 @@ public abstract class ANFUnOp implements ANFOp {
 
     private ANFVarExp x;
 
-    public ANFUnOp(){} // TODO eliminate this line after implementing subclasses
-    
     /**
      * Initialize the operand.  This constructor can only be
      * invoked by a sub-class.

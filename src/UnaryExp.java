@@ -8,8 +8,6 @@ public abstract class UnaryExp implements Expression {
 
     private Expression exp;
 
-    public UnaryExp(){} // TODO eliminate this line after implementing subclasses
-    
     /**
      * Initialize the operand.  This constructor can only be
      * invoked by a sub-class.

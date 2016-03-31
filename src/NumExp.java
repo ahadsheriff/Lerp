@@ -13,19 +13,21 @@ public class NumExp implements Expression {
      * @param num the double that is the number
      */
     public NumExp(double num){
-        // TODO
+        this.num = num;
     }
 
     @Override
     public ANFExp toANF(){
-        // TODO
-        return null; // TODO replace
+        ANFVarExp exe = new ANFVarExp();
+
+        return new ANFLetExp(exe, new ANFConstOp(num), exe);
+
     }
 
     @Override
     public Triple<ANFVarExp, ANFOp, Expression> extract(){
-        // TODO
-        return null; // TODO replace
+        ANFVarExp vary = new ANFVarExp();
+        return new Triple<>(vary, new ANFConstOp(num), new Holder(vary));
     }
 
     @Override

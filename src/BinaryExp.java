@@ -8,8 +8,6 @@ public abstract class BinaryExp implements Expression {
 
     private Expression exp1, exp2;
 
-    public BinaryExp(){} // TODO eliminate this line after implementing subclasses
-    
     /**
      * Initialize the two operands.  This constructor can only be
      * invoked by a sub-class.
