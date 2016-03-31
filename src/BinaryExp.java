@@ -44,7 +44,8 @@ public abstract class BinaryExp implements Expression {
 
     @Override
     public ANFExp toANF(){
-        return null; //TODO
+        Triple<ANFVarExp, ANFOp, Expression> extractor = extract();
+        return new ANFLetExp(extractor.first(), extractor.second(), extractor.third().toANF());
     }
 
     @Override

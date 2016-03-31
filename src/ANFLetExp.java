@@ -19,12 +19,15 @@ public class ANFLetExp implements ANFExp {
      * @param body The ANFExp that uses the variable
      */
     public ANFLetExp(ANFVarExp x, ANFOp op, ANFExp body){
-        // TODO
+        this.x = x;
+        this.op = op;
+        this.body = body;
     }
 
     @Override
     public void compile(Machine m){
-        // TODO
+        op.compile(x.getN(), m);
+        body.compile(m);
     }
 
     @Override

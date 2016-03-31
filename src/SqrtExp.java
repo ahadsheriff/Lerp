@@ -21,7 +21,7 @@ public class SqrtExp extends UnaryExp {
             ANFVarExp express = new ANFVarExp();
             Holder hole = new Holder(express);
 
-            return new Triple(express, new ANFSqrtOp((ANFVarExp)getExp().toANF()), hole);
+            return new Triple(express, new ANFSqrtOp(((Holder) getExp()).getVar()), hole);
         }
         else {
             return null;

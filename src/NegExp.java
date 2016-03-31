@@ -22,7 +22,7 @@ public class NegExp extends UnaryExp {
             ANFVarExp express = new ANFVarExp();
             Holder hole = new Holder(express);
 
-            return new Triple(express, new ANFNegOp((ANFVarExp)getExp().toANF()), hole);
+            return new Triple(express, new ANFNegOp(((Holder) getExp()).getVar()), hole);
         }
         else {
             return null;

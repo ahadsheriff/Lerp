@@ -24,9 +24,7 @@ public class DivExp extends BinaryExp {
             ANFVarExp express = new ANFVarExp();
             Holder hole = new Holder(express);
 
-            //TODO
-            // Replacing ANFVarExp cast with Holder throws an error
-            return new Triple(express, new ANFDivOp((ANFVarExp) getExp1().toANF(), (ANFVarExp) getExp2().toANF()),hole);
+            return new Triple(express, new ANFDivOp(((Holder) getExp1()).getVar(), ((Holder) getExp2()).getVar()),hole);
         }
 
         else if (!(getExp1()instanceof Holder)) {

@@ -16,7 +16,8 @@ public class ANFVarExp implements ANFExp {
      *
      */
     public ANFVarExp(){
-        this.n = 0;
+        this.n = count;
+        count++;
     }
     
     /**
@@ -38,7 +39,7 @@ public class ANFVarExp implements ANFExp {
     
     @Override
     public void compile(Machine m){
-        // TODO
+        m.addPrint(n);
     }
     
     @Override
