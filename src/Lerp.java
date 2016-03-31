@@ -14,15 +14,25 @@ public class Lerp {
     private static Machine m = new Machine();
 
     private static void compile(String codeText){
-      //TODO
+      Parser.parse(codeText);
     }
 
     private static void repl(){
       Scanner sc = new Scanner(System.in);
       while(true){
           System.out.print("Lerp] ");
-          //TODO
-          return; // TODO return only when input is the empty line
+          String readLine = sc.nextLine();
+          if(!readLine.equals("")) {
+              Expression express = Parser.parse(readLine);
+              ANFExp com = express.toANF();
+              com.compile(m);
+              m.execute();
+              m.displayInstructions();
+              m.clear();
+          }
+          else {
+              break;
+          }
       }
     }
 
