@@ -32,8 +32,8 @@ public abstract class UnaryExp implements Expression {
 
     @Override
     public ANFExp toANF(){
-        // TODO
-        return null; // TODO replace
+        Triple<ANFVarExp, ANFOp, Expression> extractor = extract();
+        return new ANFLetExp(extractor.first(), extractor.second(), extractor.third().toANF());
     }
 
     @Override
