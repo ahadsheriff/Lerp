@@ -1,3 +1,57 @@
+commit 71bbad92bc564effbe592cb4cdb3fb7f0a3b94b1
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:53:27 2016 -0400
+
+    Fixed unexpected error
+
+commit 62720d528972fdf6eb44a9e9a894c25b6ec9119b
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:49:48 2016 -0400
+
+    Testing
+
+commit 209edb38dbf618a9f7d4c27291a2af626c2d914c
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:46:14 2016 -0400
+
+    Forgot to delete something from machine class submission.
+
+commit c842bb78e76210d61e2c5542eba6265b6acdf41a
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:44:01 2016 -0400
+
+    Hopefully I fixed the no input error I was getting before for test case 1
+
+commit 51f5f4c6c47b552bba035cbcca40ca870310104f
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:18:35 2016 -0400
+
+    Needed to add a friggin period. Try blows.
+
+commit 8cc1f0213e899e694a4737a4b350326ba8202746
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:16:17 2016 -0400
+
+    Added a new line at end of foo error
+
+commit 90e2d690bb8132919cbfd059bc7b3bf1cf1f7674
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:13:11 2016 -0400
+
+    Fixed stupid error with foo. I hate try.
+
+commit 25399a745d7691d8b5e5ce1006b5d83e1cffdcaa
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 21:07:15 2016 -0400
+
+    Added Error catching code
+
+commit 90e7641e913699d95117f047f604f88698887e3c
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 20:39:59 2016 -0400
+
+    Deleted test display that was giving me issues
+
 commit ef4ae438d27072324db5fd24d3d6545f1477406d
 Author: ahadsheriff <ahadsheriff@gmail.com>
 Date:   Thu Mar 31 20:36:57 2016 -0400
