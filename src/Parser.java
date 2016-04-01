@@ -74,7 +74,7 @@ public class Parser {
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -95,7 +95,7 @@ public class Parser {
                 }
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -113,7 +113,7 @@ public class Parser {
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -131,7 +131,7 @@ public class Parser {
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -148,7 +148,7 @@ public class Parser {
                 }
                 e1 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -159,7 +159,7 @@ public class Parser {
                 return new SqrtExp(e1);
 
             default:
-                Errors.error("Unexpected operator", "'" + tokens[pos] + "'\n");
+                Errors.error("Unexpected operator", "'" + tokens[pos] + "'.\n");
                 return null;
         }
     }
