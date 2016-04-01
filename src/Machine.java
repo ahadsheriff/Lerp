@@ -74,7 +74,6 @@ public class Machine {
      *
      */
     public void displayInstructions() {
-        System.out.println("Machine Instructions: " );
         for(Instruction in : this.instrSeq){
             System.out.println(in.toString());
         }
