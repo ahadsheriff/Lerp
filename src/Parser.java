@@ -72,9 +72,12 @@ public class Parser {
                     Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
+                if(tokens[pos].equals(")")){
+                    return new NegExp(e1);
+                }
                 e2 = parenthesis();
-                if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.\n", null);
+                if(!tokens[pos].equals(")")){
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
                 else {
                     pos++;
@@ -105,6 +108,9 @@ public class Parser {
                     Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
+                if(tokens[pos].equals(")")){
+                    return new NegExp(e1);
+                }
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
                     Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
@@ -120,6 +126,9 @@ public class Parser {
                     Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
+                if(tokens[pos].equals(")")){
+                    return new NegExp(e1);
+                }
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
                     Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
@@ -135,6 +144,10 @@ public class Parser {
                     Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
+                if(tokens[pos].equals(")")){
+                    return new NegExp(e1);
+                }
+                e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
                     Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
                 }
