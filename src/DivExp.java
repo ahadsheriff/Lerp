@@ -34,7 +34,7 @@ public class DivExp extends BinaryExp {
 
         else if (!(getExp2()instanceof Holder)) {
             Triple<ANFVarExp, ANFOp, Expression> extractor = getExp2().extract();
-            return new Triple(extractor.first(), extractor.second(), new DivExp(getExp2(), extractor.third()));
+            return new Triple(extractor.first(), extractor.second(), new DivExp(getExp1(), extractor.third()));
         }
 
         else {

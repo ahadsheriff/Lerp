@@ -20,10 +20,11 @@ public class MulExp extends BinaryExp {
     @Override
     public Triple<ANFVarExp, ANFOp, Expression> extract(){
         if(getExp1()instanceof Holder && getExp2()instanceof Holder){
+
             ANFVarExp express = new ANFVarExp();
             Holder hole = new Holder(express);
 
-            return new Triple(express, new ANFMulOp(((Holder) getExp1()).getVar(), ((Holder) getExp2()).getVar()),hole);
+            return new Triple(express, new ANFMulOp(((Holder) getExp1()).getVar(), ((Holder) getExp2()).getVar()), hole);
         }
 
         else if (!(getExp1()instanceof Holder)) {
@@ -33,7 +34,7 @@ public class MulExp extends BinaryExp {
 
         else if (!(getExp2()instanceof Holder)) {
             Triple<ANFVarExp, ANFOp, Expression> extractor = getExp2().extract();
-            return new Triple(extractor.first(), extractor.second(), new MulExp(getExp2(), extractor.third()));
+            return new Triple(extractor.first(), extractor.second(), new MulExp(getExp1(), extractor.third()));
         }
 
         else {

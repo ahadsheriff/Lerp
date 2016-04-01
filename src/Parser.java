@@ -22,8 +22,11 @@ public class Parser {
     public static Expression parse(String s){
         tokens = s.replace("(", " ( ").replace(")", " ) ").trim().split("( )+");
         pos = 0;
+        //return getExpression();
+
         try{
             Expression e = getExpression();
+            //pos++;
             if (pos < tokens.length){
                 Errors.error("Too much input.", null);
             } else {
@@ -34,7 +37,9 @@ public class Parser {
         } catch (Exception e) {
             Errors.error("Unexpected error ", e);
         }
+
         return null; // Shouldn't get here. To satisfy Java.
+
     }
 
     public Expression parenthesis() {
@@ -50,6 +55,7 @@ public class Parser {
     }
 
     public Expression operators() {
+        //pos++;
         Expression e1;
         Expression e2;
         switch (tokens[pos]) {
@@ -68,6 +74,9 @@ public class Parser {
             case("-"):
                 pos++;
                 e1 = parenthesis();
+                if(tokens[pos].equals(")")){
+                    return new NegExp(e1);
+                }
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
                     Errors.error("Expected ')' next but got", tokens[pos]);
@@ -101,17 +110,6 @@ public class Parser {
                 }
                 return new DivExp(e1,e2);
 
-            case("Neg"):
-                pos++;
-                e1 = parenthesis();
-                if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
-                }
-                else {
-                    pos++;
-                }
-                return new NegExp(e1);
-
             case("Sqrt"):
                 pos++;
                 e1 = parenthesis();
@@ -120,8 +118,11 @@ public class Parser {
                 }
                 else {
                     pos++;
+                    //Triple<ANFVarExp, ANFOp, Expression> extractor = operators().extract();
+                    //return new Triple(extractor.first(), extractor.second(), new SqrtExp(extractor.third()));
                 }
                 return new SqrtExp(e1);
+
             default:
                 return null;
         }
@@ -129,7 +130,9 @@ public class Parser {
 
     private static Expression getExpression(){
         Parser p = new Parser();
-        return p.operators();
+        Expression e = p.parenthesis();
+        System.out.println(pos);
+        return e;
     }
 
 }
