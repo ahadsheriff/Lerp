@@ -47,7 +47,7 @@ public class Parser {
         if(tokens[pos].equals("(")) {
             pos++;
             if (pos >= tokens.length) {
-                Errors.error("Unexpected end of input.", null);
+                Errors.error("Unexpected end of input.\n", null);
             }
             return operators();
         }
@@ -55,7 +55,7 @@ public class Parser {
             NumExp returnNums = new NumExp(Integer.parseInt(tokens[pos]));
             pos++;
             if (pos >= tokens.length) {
-                Errors.error("Unexpected end of input.", null);
+                Errors.error("Unexpected end of input.\n", null);
             }
             return returnNums;
         }
@@ -69,25 +69,22 @@ public class Parser {
             case("+"):
                 pos++;
                 if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.", null);
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
                 e2 = parenthesis();
-                if(!tokens[pos].equals(")")){
-                    Errors.error("Unexpected token", tokens[pos] + "; expected ).\n");
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 else {
                     pos++;
-                    if (pos >= tokens.length) {
-                        Errors.error("Unexpected end of input.", null);
-                    }
                 }
                 return new AddExp(e1,e2);
 
             case("-"):
                 pos++;
                 if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.", null);
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
                 if(tokens[pos].equals(")")){
@@ -99,16 +96,13 @@ public class Parser {
                 }
                 else {
                     pos++;
-                    if (pos >= tokens.length) {
-                        Errors.error("Unexpected end of input.", null);
-                    }
                 }
                 return new SubExp(e1,e2);
 
             case("*"):
                 pos++;
                 if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.", null);
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
                 e2 = parenthesis();
@@ -117,16 +111,13 @@ public class Parser {
                 }
                 else {
                     pos++;
-                    if (pos >= tokens.length) {
-                        Errors.error("Unexpected end of input.", null);
-                    }
                 }
                 return new MulExp(e1,e2);
 
             case("/"):
                 pos++;
                 if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.", null);
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
                 e2 = parenthesis();
@@ -135,16 +126,13 @@ public class Parser {
                 }
                 else {
                     pos++;
-                    if (pos >= tokens.length) {
-                        Errors.error("Unexpected end of input.", null);
-                    }
                 }
                 return new DivExp(e1,e2);
 
             case("Sqrt"):
                 pos++;
                 if (pos >= tokens.length) {
-                    Errors.error("Unexpected end of input.", null);
+                    Errors.error("Unexpected end of input.\n", null);
                 }
                 e1 = parenthesis();
                 if(!tokens[pos].equals(")")){
@@ -152,9 +140,6 @@ public class Parser {
                 }
                 else {
                     pos++;
-                    if (pos >= tokens.length) {
-                        Errors.error("Unexpected end of input.", null);
-                    }
                 }
                 return new SqrtExp(e1);
 

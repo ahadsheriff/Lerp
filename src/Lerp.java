@@ -14,7 +14,9 @@ public class Lerp {
     private static Machine m = new Machine();
 
     private static void compile(String codeText){
-      Parser.parse(codeText);
+        Expression express = Parser.parse(codeText);
+        ANFExp com = express.toANF();
+        com.compile(m);
     }
 
     private static void repl(){
