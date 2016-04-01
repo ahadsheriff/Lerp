@@ -131,7 +131,6 @@ public class Parser {
     private static Expression getExpression(){
         Parser p = new Parser();
         Expression e = p.parenthesis();
-        System.out.println(pos);
         return e;
     }
 

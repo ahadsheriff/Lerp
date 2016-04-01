@@ -1,3 +1,27 @@
+commit ef4ae438d27072324db5fd24d3d6545f1477406d
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 20:36:57 2016 -0400
+
+    Fixed my too much input error
+
+commit 8b8607b8b14b8141032331f403401c715a8e86d6
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 18:45:41 2016 -0400
+
+    I think I finished Parser...time to test it out...please work haha
+
+commit e9e7205ff3b67dedaaf1712ecdaa2160a6fc24c8
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 16:34:09 2016 -0400
+
+    Finished implementing Lerp. Parser is the only class I have left to do, then I just have to test.
+
+commit 02039360450f2943b6e8152579cce8edae7a992c
+Author: ahadsheriff <ahadsheriff@gmail.com>
+Date:   Thu Mar 31 15:52:47 2016 -0400
+
+    Git log. Parser and Lerp are the only classes I have remaining.
+
 commit 5700faf295dbdecb0f418abbe7f4b9f708e66fe9
 Author: ahadsheriff <ahadsheriff@gmail.com>
 Date:   Thu Mar 31 15:51:52 2016 -0400
