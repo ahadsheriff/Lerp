@@ -29,7 +29,7 @@ public class Parser {
             Expression e = getExpression();
             //pos++;
             if (pos < tokens.length){
-                Errors.error("Too much input.", null);
+                Errors.error("Too much input.\n", null);
             } else {
                 return e;
             }

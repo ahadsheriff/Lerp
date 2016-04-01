@@ -29,7 +29,6 @@ public class Lerp {
               ANFExp com = express.toANF();
               com.compile(m);
               m.execute();
-              m.displayInstructions();
               m.clear();
           }
           else {
