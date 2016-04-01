@@ -1,3 +1,4 @@
+import jdk.nashorn.internal.parser.Token;
 import jdk.nashorn.internal.parser.TokenType;
 
 /**
@@ -45,11 +46,17 @@ public class Parser {
     public Expression parenthesis() {
         if(tokens[pos].equals("(")) {
             pos++;
+            if (pos >= tokens.length) {
+                Errors.error("Unexpected end of input.", null);
+            }
             return operators();
         }
         else {
             NumExp returnNums = new NumExp(Integer.parseInt(tokens[pos]));
             pos++;
+            if (pos >= tokens.length) {
+                Errors.error("Unexpected end of input.", null);
+            }
             return returnNums;
         }
     }
@@ -61,69 +68,98 @@ public class Parser {
         switch (tokens[pos]) {
             case("+"):
                 pos++;
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.", null);
+                }
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
                 }
                 else {
                     pos++;
+                    if (pos >= tokens.length) {
+                        Errors.error("Unexpected end of input.", null);
+                    }
                 }
                 return new AddExp(e1,e2);
 
             case("-"):
                 pos++;
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.", null);
+                }
                 e1 = parenthesis();
                 if(tokens[pos].equals(")")){
                     return new NegExp(e1);
                 }
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
                 }
                 else {
                     pos++;
+                    if (pos >= tokens.length) {
+                        Errors.error("Unexpected end of input.", null);
+                    }
                 }
                 return new SubExp(e1,e2);
 
             case("*"):
                 pos++;
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.", null);
+                }
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
                 }
                 else {
                     pos++;
+                    if (pos >= tokens.length) {
+                        Errors.error("Unexpected end of input.", null);
+                    }
                 }
                 return new MulExp(e1,e2);
 
             case("/"):
                 pos++;
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.", null);
+                }
                 e1 = parenthesis();
                 e2 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
                 }
                 else {
                     pos++;
+                    if (pos >= tokens.length) {
+                        Errors.error("Unexpected end of input.", null);
+                    }
                 }
                 return new DivExp(e1,e2);
 
             case("Sqrt"):
                 pos++;
+                if (pos >= tokens.length) {
+                    Errors.error("Unexpected end of input.", null);
+                }
                 e1 = parenthesis();
                 if(!tokens[pos].equals(")")){
-                    Errors.error("Expected ')' next but got", tokens[pos]);
+                    Errors.error("Unexpected token", tokens[pos] + "; expected ).");
                 }
                 else {
                     pos++;
-                    //Triple<ANFVarExp, ANFOp, Expression> extractor = operators().extract();
-                    //return new Triple(extractor.first(), extractor.second(), new SqrtExp(extractor.third()));
+                    if (pos >= tokens.length) {
+                        Errors.error("Unexpected end of input.", null);
+                    }
                 }
                 return new SqrtExp(e1);
 
             default:
+                Errors.error("Unexpected operator", tokens[pos]);
                 return null;
         }
     }
