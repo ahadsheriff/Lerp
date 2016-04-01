@@ -159,7 +159,7 @@ public class Parser {
                 return new SqrtExp(e1);
 
             default:
-                Errors.error("Unexpected operator", tokens[pos]);
+                Errors.error("Unexpected operator", "'" + tokens[pos] + "'");
                 return null;
         }
     }
